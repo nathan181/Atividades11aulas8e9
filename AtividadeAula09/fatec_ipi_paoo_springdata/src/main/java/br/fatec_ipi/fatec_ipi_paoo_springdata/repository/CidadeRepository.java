@@ -17,13 +17,13 @@ public interface CidadeRepository extends JpaRepository<Cidade, Long> {
 	
 	//Querys
 	
-	@Query ("SELECT a FROM tb_cidade a WHERE lower(a.nome) = ?1") 
+	@Query ("SELECT c FROM Cidade c WHERE lower(c.nome) = ?1") 
 	public List <Cidade> buscarPorNomeIgnore (String nome);
 	
-	@Query ("SELECT a FROM tb_cidade a WHERE a.nome = ?1%") 
+	@Query ("SELECT c FROM Cidade c WHERE c.nome = ?1%") 
 	public List <Cidade> buscarPorNome (String nome);
 
-	@Query ("SELECT a FROM tb_cidade a WHERE a.latitude = :latitude and a.longitude = :longitude") 
+	@Query ("SELECT c FROM Cidade c WHERE c.latitude = :latitude and c.longitude = :longitude") 
 	public List <Cidade> buscarPorLatitudeELongitude (@Param ("latitude") int latitude,@Param("longitude") int longitude);
 	
 	
